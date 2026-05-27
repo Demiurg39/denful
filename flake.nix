@@ -21,6 +21,10 @@
       };
     };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
