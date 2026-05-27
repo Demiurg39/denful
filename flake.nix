@@ -20,6 +20,7 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
