@@ -26,7 +26,7 @@
 
         i18n = {
           defaultLocale = lib.mkDefault "en_US.UTF-8";
-          supportedLocales = ["ru_RU.UTF-8/UTF-8"];
+          extraLocales = ["ru_RU.UTF-8/UTF-8"];
         };
 
         console.keyMap = "mod-dh-ansi-us";
