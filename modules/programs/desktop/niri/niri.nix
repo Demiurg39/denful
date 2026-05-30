@@ -11,10 +11,6 @@
     ];
 
     nixpkgs.overlays = [inputs.niri.overlays.niri];
-    environment.systemPackages = [
-      pkgs.bibata-cursors
-      pkgs.wl-mirror # for mirroring
-    ];
 
     programs.niri.enable = true;
     programs.niri.package = pkgs.niri-unstable;
@@ -22,6 +18,10 @@
 
   flake.modules.homeManager.niri = {pkgs, ...}: {
     imports = [inputs.niri.homeModules.config];
+    home.packages = [
+      pkgs.bibata-cursors
+      pkgs.wl-mirror # for mirroring
+    ];
 
     programs.niri = {
       settings = {
@@ -31,16 +31,6 @@
             layout = "us,ru";
             options = "grp:win_space_toggle";
           };
-
-          # touchpad = mkIf (hasPrefix "workstation/laptop" role) {
-          #   enable = true;
-          #   tap = true;
-          #   tap-button-map = "left-right-middle";
-          #   natural-scroll = true;
-          #   scroll-method = "two-finger";
-          #   drag = true;
-          # };
-
           warp-mouse-to-focus = {};
           focus-follows-mouse.enable = true;
         };
@@ -55,49 +45,7 @@
           };
           gaps = 12;
         };
-
         gestures.hot-corners.enable = false;
-        # TODO: set exclusively per host
-        # outputs = lib.listToAttrs (map (m: let
-        #   selectByCondition = conditions: default:
-        #     if conditions == []
-        #     then default
-        #     else let
-        #       first = builtins.head conditions;
-        #     in
-        #       if first.condition
-        #       then first.value
-        #       else selectByCondition (builtins.tail conditions) default;
-        #
-        #   parsed = lib.splitString "x" m.resolution;
-        #   width = lib.toInt (builtins.elemAt parsed 0);
-        #   height = lib.toInt (builtins.elemAt parsed 1);
-        #   vrr =
-        #     selectByCondition [
-        #       {
-        #         condition = m.vrr.enable;
-        #         value = true;
-        #       }
-        #       {
-        #         condition = m.vrr.enable && m.vrr.on-demand;
-        #         value = "on-demand";
-        #       }
-        #     ]
-        #     false;
-        # in {
-        #   name = m.output;
-        #   value = {
-        #     mode = {
-        #       width = width;
-        #       height = height;
-        #       refresh = m.refresh_rate;
-        #     };
-        #     scale = m.scale;
-        #     focus-at-startup = m.primary;
-        #     variable-refresh-rate = vrr;
-        #   };
-        # }) (lib.filter (m: m.enable && m.output != "") cfg.monitors));
-
         screenshot-path = "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png";
 
         cursor = {
@@ -111,8 +59,6 @@
           GDK_BACKEND = "wayland";
           NIXOS_OZONE_WL = "1";
           ELECTRON_OZONE_PLATFORM_HINT = "auto";
-          # FIX: add to system constants
-          # BROWSER = config.modules.desktop.browser.default;
           XCURSOR_THEME = "Bibata-Modern-Ice";
           XCURSOR_SIZE = "24";
         };
