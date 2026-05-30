@@ -26,11 +26,16 @@
       submodules = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    configs = {
+      url = "path:./configs";
+      flake = false;
+    };
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    dms.url = "github:AvengeMedia/DankMaterialShell/stable";
     flake-file.url = "github:vic/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -43,6 +48,10 @@
     import-tree.url = "github:vic/import-tree";
     millennium = {
       url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri = {
+      url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-auto-follow = {
