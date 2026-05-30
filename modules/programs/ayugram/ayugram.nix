@@ -1,8 +1,8 @@
-{inputs', ...}: let
-  inherit (inputs'.self.lib) assoc;
-  ayugram = inputs'.ayugram-desktop.packages.ayugram-desktop;
-in {
-  flake.modules.homeManager.ayugram = {
+{inputs, ...}: {
+  flake.modules.homeManager.ayugram = {pkgs, ...}: let
+    inherit (inputs.self.lib) assoc;
+    ayugram = inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop;
+  in {
     home.packages = [
       ayugram
     ];

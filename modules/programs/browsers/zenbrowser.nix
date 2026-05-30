@@ -1,12 +1,13 @@
 {
-  inputs',
+  inputs,
   lib,
   ...
 }: let
-  inherit (inputs'.self.lib) assoc;
-  zen = inputs'.zen-browser.packages.default;
 in {
-  flake.modules.homeManager.zen-browser = {
+  flake.modules.homeManager.zen-browser = {pkgs, ...}: let
+    inherit (inputs.self.lib) assoc;
+    zen = inputs.zen-browser.packages.${pkgs.system}.default;
+  in {
     home.packages = [
       zen
     ];
