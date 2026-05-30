@@ -6,10 +6,10 @@
   }: {
     programs.lutris = {
       enable = true;
-      extraPackages = [pkgs.mangohud pkgs.vulkan-tools];
       steamPackage = osConfig.programs.steam.package;
-      protonPackages = pkgs.proton-ge-bin;
-      winePackages = pkgs.wineWow64Packages.staging;
+      extraPackages = [pkgs.mangohud pkgs.vulkan-tools];
+      protonPackages = [pkgs.proton-ge-bin];
+      winePackages = [pkgs.wineWow64Packages.staging];
     };
 
     home.packages = [
