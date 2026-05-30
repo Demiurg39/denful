@@ -8,6 +8,7 @@
       users.users."${username}" = {
         name = "${username}";
         home = "/home/${username}";
+        isNormalUser = true;
         extraGroups = lib.optionals isAdmin ["wheel"];
       };
 
