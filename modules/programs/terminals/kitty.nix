@@ -1,7 +1,10 @@
-{
-  flake.modules.homeManager.kitty = {pkgs, ...}: {
+{inputs, ...}: {
+  flake.modules.nixos.kitty = {pkgs, ...}: {
     fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
+    home-manager.sharedModules = [inputs.self.modules.homeManager.kitty];
+  };
 
+  flake.modules.homeManager.kitty = {
     programs.kitty = {
       enable = true;
       keybindings = {};

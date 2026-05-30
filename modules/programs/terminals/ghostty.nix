@@ -1,7 +1,10 @@
-{
-  flake.modules.homeManager.ghostty = {pkgs, ...}: {
+{inputs, ...}: {
+  flake.modules.nixos.ghostty = {pkgs, ...}: {
     fonts.packages = [pkgs.nerd-fonts.jetbrains-mono];
+    home-manager.sharedModules = [inputs.self.modules.homeManager.ghostty];
+  };
 
+  flake.modules.homeManager.ghostty = {
     programs.ghostty = {
       enable = true;
       systemd.enable = false;
