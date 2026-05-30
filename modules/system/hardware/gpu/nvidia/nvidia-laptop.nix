@@ -1,6 +1,6 @@
 {inputs, ...}: {
-  flake.modules.nixos.gpu.nvidia-laptop = {
-    imports = [inputs.self.modules.nixos.nvidia];
+  flake.modules.nixos.gpu-nvidia-laptop = {
+    imports = [inputs.self.modules.nixos.gpu-nvidia];
 
     boot.extraModprobeConfig = ''
       options nvidia "NVreg_DynamicPowerManagement=0x02" # finegrained

@@ -1,5 +1,5 @@
-{lib, ...}: {
-  flake.modules.nixos.gpu.amd = {
+{
+  flake.modules.nixos.gpu-amd = {lib, ...}: {
     boot.initrd.kernelModules = ["amdgpu"];
     services.xserver.videoDrivers = lib.mkBefore ["amdgpu"];
 
