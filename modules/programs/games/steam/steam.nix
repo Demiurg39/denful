@@ -3,8 +3,11 @@
     imports = with inputs.self.modules.nixos; [
       gamemode
       gamescope
+    ];
+    home-manager.sharedModules = with inputs.self.modules.homeManager; [
       mangohud
     ];
+
     nixpkgs.overlays = [inputs.millennium.overlays.default];
     fonts.fontDir.enable = true;
 
