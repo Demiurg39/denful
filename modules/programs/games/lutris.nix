@@ -12,7 +12,7 @@
       winePackages = pkgs.wineWow64Packages.staging;
     };
 
-    environment.systemPackages = [
+    home.packages = [
       pkgs.protonplus
     ];
   };
