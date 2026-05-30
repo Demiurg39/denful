@@ -17,7 +17,6 @@
   };
 
   flake.modules.homeManager.niri = {pkgs, ...}: {
-    imports = [inputs.niri.homeModules.config];
     home.packages = [
       pkgs.bibata-cursors
       pkgs.wl-mirror # for mirroring
