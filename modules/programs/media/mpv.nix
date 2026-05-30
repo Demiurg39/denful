@@ -1,7 +1,7 @@
 {inputs, ...}: let
   inherit (inputs.self.lib) assoc;
 in {
-  flake.modules.homeManager = {pkgs, ...}: {
+  flake.modules.homeManager.mpv = {pkgs, ...}: {
     home.packages = [pkgs.celluloid];
 
     xdg.mimeApps.defaultApplications = assoc pkgs.celluloid {
