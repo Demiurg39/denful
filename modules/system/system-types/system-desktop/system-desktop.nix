@@ -6,7 +6,7 @@
   };
 
   flake.modules.homeManager.system-desktop = {
-    imports = with inputs.self.modules.nixos; [
+    imports = with inputs.self.modules.homeManager; [
       system-cli
 
       media-tools
