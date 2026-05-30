@@ -12,7 +12,7 @@
 
     # Disable default daily Nix garbage collection. Frequent massive deletions
     # of small files drastically accelerate SSD cell degradation (wear out).
-    nix.gc.automatic = false;
+    nix.gc.automatic = lib.mkDefault false;
 
     boot.kernel.sysctl = {
       # Reduce kernel tendency to swap anonymous memory. Keeping data in RAM
