@@ -1,8 +1,8 @@
 {self, ...}: {
   flake.modules.nixos.firmware = {
-    imports = [
-      (self.factory.unfree ["linux-firmware" "fwupd"])
-    ];
+    # imports = [
+    #   (self.factory.unfree ["linux-firmware" "fwupd"])
+    # ];
 
     services.fwupd.enable = true;
     hardware.enableAllFirmware = true;
