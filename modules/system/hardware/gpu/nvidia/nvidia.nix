@@ -16,7 +16,6 @@
     '';
   in {
     services.xserver.videoDrivers = ["nvidia"];
-    user.extraGroups = ["video"];
     boot.kernelModules = ["nvidia_uvm"];
     boot.blacklistedKernelModules = ["nouveau"];
     environment.systemPackages = [nvidia-offload];
