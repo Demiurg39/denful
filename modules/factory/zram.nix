@@ -1,20 +1,18 @@
 {
   config.flake.factory.zram = {
     memPercent ? 50,
-    writeBackDev ? null,
+    writebackDev ? null,
     algo ? "zstd",
   }: {
-    nixos.zram = {
-      zramSwap = {
-        enable = true;
-        priority = 999;
-        swapDevices = 1;
-        algorithm = algo;
-        memoryPercent = memPercent;
-        writeBackDevice = writeBackDev;
-      };
-
-      boot.kernel.sysctl.vm.swappiness = 180;
+    zramSwap = {
+      enable = true;
+      priority = 999;
+      swapDevices = 1;
+      algorithm = algo;
+      memoryPercent = memPercent;
+      writebackDevice = writebackDev;
     };
+
+    boot.kernel.sysctl.vm.swappiness = 180;
   };
 }
