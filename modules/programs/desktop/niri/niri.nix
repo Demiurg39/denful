@@ -81,7 +81,7 @@
 
         spawn-at-startup = [];
 
-        xwayland-satellite.path = lib.getExe pkgs.xwayland-satelite;
+        xwayland-satellite.path = lib.getExe pkgs.xwayland-satellite;
 
         window-rules = [
           {
