@@ -1,4 +1,8 @@
-{inputs', ...}: let
+{
+  inputs',
+  lib,
+  ...
+}: let
   inherit (inputs'.self.lib) assoc;
   zen = inputs'.zen-browser.packages.default;
 in {
@@ -7,6 +11,7 @@ in {
       zen
     ];
 
+    home.sessionVariables.BROWSER = lib.getExe zen;
     xdg.mimeApps.defaultApplications = assoc zen {
       "application" = [
         "json"

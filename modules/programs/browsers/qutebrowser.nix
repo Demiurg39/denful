@@ -1,4 +1,8 @@
-{inputs, ...}: let
+{
+  inputs,
+  lib,
+  ...
+}: let
   inherit (inputs.self.lib) assoc;
   def_url = "https://4get.ca";
   start_page = def_url;
@@ -106,6 +110,8 @@ in {
         "unknown"
       ];
     };
+
+    home.sessionVariables.BROWSER = lib.getExe pkgs.qutebrowser;
 
     #     # Installing spellcheck dicts
     #     home.file = listToAttrs (map (
