@@ -1,7 +1,14 @@
-{inputs, ...}: {
-  flake.modules.homeManager.ayugram = {config, ...}: {
+{inputs', ...}: let
+  inherit (inputs'.self.lib) assoc;
+  ayugram = inputs'.ayugram-desktop.packages.ayugram-desktop;
+in {
+  flake.modules.homeManager.ayugram = {
     home.packages = [
-      inputs.ayugram-desktop.packages.${config.hostPlatform}.ayugram-desktop
+      ayugram
     ];
+
+    xdg.mimeApps.defaultApplications = assoc ayugram {
+      "x-scheme-handler/tg" = ["org.telegram.desktop"];
+    };
   };
 }

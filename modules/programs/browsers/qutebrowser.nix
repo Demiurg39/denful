@@ -1,40 +1,27 @@
-{lib, ...}: {
-  flake.modules.homeManager.qutebrowser = {
-    config,
-    pkgs,
-    ...
-  }: let
-    def_url = "https://4get.ca";
-    start_page = def_url;
-    #   # NOTE: in case of adding new dict, you must yourself browse the url
-    #   # and fill the hash and version per lang, per update sure do
-    #   # the same thing
-    #   languages = config.home.programs.qutebrowser.settings.spellcheck.languages;
-    #   dictsURL = "https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries.git/+/refs/heads/main";
-    #   dictVersions = {
-    #     "en-US" = {
-    #       v = "10-1";
-    #       hash = "1bxn778sqd6q144hr4d6l18s34n1mjc6bp6dsjlp2sbhw4kh38h1";
-    #     };
-    #     "ru-RU" = {
-    #       v = "3-0";
-    #       hash = "1qv04065g6mxshz6s42y6b69cwscvdmbi2ji5mqc9s79pwi9xy4c";
-    #     };
-    #   };
-  in {
-    #   options.modules.desktop.browser.qutebrowser = {
-    #     enable = mkEnableOption "Enable qutebrowser";
-    #     setDefault = mkOpt types.bool false;
-    #     widevine.enable = mkEnableOption ''
-    #       Widevine is a proprietary digital rights management (DRM) technology
-    #       from Google used by many web browsers. Widevine is required to watch
-    #       content on many subscription-based streaming services,
-    #       e.g. Netflix,Prime Video, Spotify, etc.
-    #     '';
-    #   };
+{inputs, ...}: let
+  inherit (inputs.self.lib) assoc;
+  def_url = "https://4get.ca";
+  start_page = def_url;
+  #   # NOTE: in case of adding new dict, you must yourself browse the url
+  #   # and fill the hash and version per lang, per update sure do
+  #   # the same thing
+  #   languages = config.home.programs.qutebrowser.settings.spellcheck.languages;
+  #   dictsURL = "https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries.git/+/refs/heads/main";
+  #   dictVersions = {
+  #     "en-US" = {
+  #       v = "10-1";
+  #       hash = "1bxn778sqd6q144hr4d6l18s34n1mjc6bp6dsjlp2sbhw4kh38h1";
+  #     };
+  #     "ru-RU" = {
+  #       v = "3-0";
+  #       hash = "1qv04065g6mxshz6s42y6b69cwscvdmbi2ji5mqc9s79pwi9xy4c";
+  #     };
+  #   };
+in {
+  flake.modules.homeManager.qutebrowser = {pkgs, ...}: {
     programs.qutebrowser = {
       enable = true;
-      # package = pkgs.qutebrowser.override {enableWideVine = cfg.widevine.enable;};
+      package = pkgs.qutebrowser.override {enableWideVine = true;};
       settings = {
         auto_save.session = true;
         backend = "webengine";
@@ -98,6 +85,26 @@
           ",d" = "config-cycle colors.webpage.darkmode.enabled true false";
         };
       };
+    };
+
+    xdg.mimeApps.defaultApplications = assoc pkgs.qutebrowser {
+      "application" = [
+        "json"
+        "x-extension-htm"
+        "x-extension-html"
+        "x-extension-shtml"
+        "x-extension-xht"
+        "x-extension-xhtml"
+        "xhtml+xml"
+      ];
+      "x-scheme-handler" = [
+        "about"
+        "chrome"
+        "ftp"
+        "http"
+        "https"
+        "unknown"
+      ];
     };
 
     #     # Installing spellcheck dicts

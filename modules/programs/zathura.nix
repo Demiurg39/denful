@@ -1,5 +1,11 @@
-{
-  flake.modules.homeManager.zathura = {
+{inputs, ...}: let
+  inherit (inputs.self.lib) assoc;
+in {
+  flake.modules.homeManager.zathura = {pkgs, ...}: {
+    xdg.mimeApps.defaultApplications = assoc pkgs.zathura {
+      application = ["pdf"];
+    };
+
     programs.zathura = {
       enable = true;
       options = {
