@@ -1,0 +1,36 @@
+{inputs, ...}: {
+  flake.modules.nixos.steam = {pkgs, ...}: {
+    imports = with inputs.self.modules.nixos; [
+      gamemode
+      gamescope
+      mangohud
+    ];
+    nixpkgs.overlays = [inputs.millennium.overlays.default];
+    fonts.fontDir.enable = true;
+
+    programs.steam = {
+      enable = true;
+      package = pkgs.millennium-steam;
+      extraPackages = [
+        pkgs.keyutils
+        pkgs.libgdiplus
+        pkgs.vulkan-loader
+        pkgs.vulkan-tools
+        pkgs.vulkan-validation-layers
+        pkgs.libXtst
+        # pkgs.gamescope
+        # pkgs.gamemode
+        # pkgs.mangohud
+      ];
+
+      extraCompatPackages = [pkgs.proton-ge-bin pkgs.steamtinkerlaunch];
+
+      # Open ports in the firewall for Steam Remote Play
+      remotePlay.openFirewall = true;
+      protontricks.enable = true;
+    };
+
+    # Managing proton versions
+    environment.systemPackages = [pkgs.protonplus];
+  };
+}
