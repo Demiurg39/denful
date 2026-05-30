@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.nvidia = {
+  flake.modules.nixos.gpu.nvidia = {
     config,
     pkgs,
     ...

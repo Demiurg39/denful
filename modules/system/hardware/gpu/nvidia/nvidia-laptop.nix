@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  flake.modules.nixos.nvidia-laptop = {
+  flake.modules.nixos.gpu.nvidia-laptop = {
     imports = [inputs.self.modules.nixos.nvidia];
 
     boot.extraModprobeConfig = ''
