@@ -53,7 +53,19 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix4nvchad = {
+      url = "github:nix-community/nix4nvchad";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-stable";
+        nvchad-starter.follows = "nvim-dots";
+      };
+    };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    nvim-dots = {
+      url = "github:demiurg39/nvchad";
+      flake = false;
+    };
     secrets = {
       url = "path:./secrets";
       flake = false;
