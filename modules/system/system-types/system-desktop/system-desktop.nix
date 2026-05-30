@@ -10,7 +10,6 @@
       system-cli
 
       media-tools
-      browser
       office
       mpv
     ];
