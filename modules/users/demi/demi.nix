@@ -17,9 +17,6 @@
         users.users.demi = {
           hashedPasswordFile = config.age.secrets.demiHashedPassword.path;
           shell = pkgs.nushell;
-          openssh.authorizedKeys.keys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHs7JuXYLla/8vwen9DHAbP1X90J7wJrw2+Cfyf2kbW"
-          ];
         };
 
         age.secrets.demiHashedPassword.rekeyFile = "${self.inputs.secrets}/demi-hashed-password.age";
