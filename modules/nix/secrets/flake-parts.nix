@@ -17,4 +17,17 @@
   };
 
   imports = [inputs.agenix-rekey.flakeModule];
+
+  perSystem = {
+    config,
+    pkgs,
+    ...
+  }: {
+    devShells.default = pkgs.mkShell {
+      nativeBuildInputs = [
+        config.agenix-rekey.package
+        pkgs.rage
+      ];
+    };
+  };
 }

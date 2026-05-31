@@ -3,17 +3,12 @@
   self,
   ...
 }: {
-  flake.modules.nixos.secrets = {
-    config,
-    pkgs,
-    ...
-  }: {
+  flake.modules.nixos.secrets = {config, ...}: {
     imports = [
       inputs.agenix.nixosModules.default
       inputs.agenix-rekey.nixosModules.default
     ];
 
-    environment.systemPackages = [config.agenix-rekey.package pkgs.rage];
     age.rekey = {
       storageMode = "local";
       localStorageDir = "${self.inputs.secrets}/rekeyed/${config.networking.hostName}";
