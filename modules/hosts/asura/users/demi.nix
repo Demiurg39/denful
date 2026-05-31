@@ -13,6 +13,7 @@
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
       # ayugram
       lutris
+      spotify
     ];
   };
 }

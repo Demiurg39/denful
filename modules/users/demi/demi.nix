@@ -33,8 +33,6 @@
         imports = with self.modules.homeManager; [
           system-desktop
 
-          spotify
-
           passwordManager
           nushell
           atuin
