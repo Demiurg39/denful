@@ -21,7 +21,21 @@
     };
   };
 
-  flake.modules.homeManager.secrets = {
-    imports = [inputs.agenix.homeManagerModules.default];
+  flake.modules.homeManager.secrets = {config, ...}: {
+    imports = [
+      inputs.agenix.homeManagerModules.default
+      inputs.agenix-rekey.homeManagerModules.default
+    ];
+
+    age.rekey = {
+      storageMode = "local";
+      localStorageDir = "${self.inputs.secrets}/rekeyed/${config.home.username}";
+      masterIdentities = [
+        {
+          identity = "${self.inputs.secrets}/master-key.age";
+          pubkey = "age1dphk4m8sr6dhm6amwlvyg3tg0yxfgy9w0meywu8u9205gvx4c5eskaa6nc";
+        }
+      ];
+    };
   };
 }
