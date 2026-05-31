@@ -6,7 +6,7 @@
 in {
   flake.modules.homeManager.zen-browser = {pkgs, ...}: let
     inherit (inputs.self.lib) assoc;
-    zen = inputs.zen-browser.packages.${pkgs.system}.default;
+    zen = inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default;
   in {
     home.packages = [
       zen
