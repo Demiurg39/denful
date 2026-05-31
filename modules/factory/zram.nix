@@ -13,6 +13,6 @@
       writebackDevice = writebackDev;
     };
 
-    boot.kernel.sysctl.vm.swappiness = 180;
+    boot.kernel.sysctl."vm.swappiness" = 180;
   };
 }
