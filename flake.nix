@@ -69,7 +69,7 @@
         nvchad-starter.follows = "nvim-dots";
       };
     };
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-26.05";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
     nvim-dots = {
       url = "github:demiurg39/nvchad";
