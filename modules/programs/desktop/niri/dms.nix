@@ -22,6 +22,7 @@
   };
 
   flake.modules.homeManager.dms = {
+    systemd.user.services.niri-flake-polkit.enable = false;
     programs.dank-material-shell = {
       enable = true;
       settings =
