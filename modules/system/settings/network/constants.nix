@@ -1,6 +1,6 @@
 # modules/system/settings/network/constants.nix
 {
-  config.flake.lib.network = {
+  config.flake.const.network = {
     dns = {
       quad9 = {
         v4 = "9.9.9.9";

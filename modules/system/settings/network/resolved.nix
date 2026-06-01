@@ -8,7 +8,7 @@
         DNSOverTLS = true;
         DNSSEC = false;
         fallbackDns = [
-          "${inputs.self.lib.network.dns.cloudflare.v4}#${inputs.self.lib.network.dns.cloudflare.hostname}"
+          "${inputs.self.const.network.dns.cloudflare.v4}#${inputs.self.const.network.dns.cloudflare.hostname}"
         ];
       };
     };

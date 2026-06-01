@@ -50,6 +50,6 @@
       };
     };
 
-    time.timeZone = "Asia/Bishkek";
+    time.timeZone = inputs.self.const.timezone;
   };
 }
