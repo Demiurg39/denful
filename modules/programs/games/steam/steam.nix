@@ -14,7 +14,8 @@
 
     programs.steam = {
       enable = true;
-      package = pkgs.millennium-steam;
+      # package = pkgs.millennium-steam;
+      package = pkgs.steam;
       extraPackages = [
         pkgs.keyutils
         pkgs.libgdiplus
