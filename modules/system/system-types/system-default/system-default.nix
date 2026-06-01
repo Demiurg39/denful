@@ -7,6 +7,7 @@
       nix-index
       secrets
       disko
+      nh
     ];
   };
 
