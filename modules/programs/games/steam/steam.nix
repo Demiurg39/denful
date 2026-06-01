@@ -4,6 +4,7 @@
       gamemode
       gamescope
     ];
+
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
       mangohud
     ];
@@ -21,9 +22,6 @@
         pkgs.vulkan-tools
         pkgs.vulkan-validation-layers
         pkgs.libXtst
-        # pkgs.gamescope
-        # pkgs.gamemode
-        # pkgs.mangohud
       ];
 
       extraCompatPackages = [pkgs.proton-ge-bin pkgs.steamtinkerlaunch];
