@@ -4,6 +4,7 @@
       system-minimal
       home-manager
       determinate
+      nix-index
       secrets
       disko
     ];

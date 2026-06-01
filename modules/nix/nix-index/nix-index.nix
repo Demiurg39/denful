@@ -1,6 +1,7 @@
 {inputs, ...}: {
   flake.modules.nixos.nix-index = {
     imports = [inputs.nix-index-database.nixosModules.default];
+    home-manager.sharedModules = [inputs.self.modules.homeManager.nix-index];
   };
 
   flake.modules.homeManager.nix-index = {
