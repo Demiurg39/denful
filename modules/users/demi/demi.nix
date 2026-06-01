@@ -33,6 +33,7 @@
         imports = with self.modules.homeManager; [
           system-desktop
 
+          nvchad
           passwordManager
           nushell
           atuin
