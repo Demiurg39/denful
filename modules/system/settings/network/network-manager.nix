@@ -1,14 +1,16 @@
-{
-    flake.modules.nixos.network-manager = {
+# modules/system/settings/network/network-manager.nix
+{lib, ...}: {
+  flake.modules.nixos.network-manager = {
+    networking.networkmanager = {
+      enable = true;
 
-    networking = {
-      networkmanager = {
-        enable = true;
-        settings = {
-          # Use a stable but randomized MAC for each connection
-          connection.wifi-cloned-mac-address = "stable";
-        };
-      };
+      dns = lib.mkDefault "systemd-resolved";
+
+      unmanaged = [
+        "interface-name:docker*"
+        "interface-name:br-*"
+        "interface-name:veth*"
+      ];
     };
-    };
+  };
 }

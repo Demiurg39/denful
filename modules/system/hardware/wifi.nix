@@ -1,13 +1,27 @@
-{
+# modules/system/settings/network/wifi.nix
+{inputs, ...}: {
   flake.modules.nixos.wifi = {
-    networking = {
-      networkmanager = {
-        settings = {
-          # Use a random MAC for Wi-Fi scanning
-          wifi.scan-rand-mac-address = "yes";
-          # Use a stable but randomized MAC for each connection
-          connection.wifi-cloned-mac-address = "stable";
-        };
+    imports = [
+      inputs.self.modules.nixos.network-manager
+      inputs.self.modules.nixos.resolved
+    ];
+
+    networking.networkmanager = {
+      # iwd instead of wpa_supplicant
+      wifi.backend = "iwd";
+
+      settings = {
+        wifi.scan-rand-mac-address = true;
+        connection.wifi-cloned-mac-address = "stable";
+        connection.ip6-privacy = 2;
+      };
+    };
+
+    networking.wireless.iwd = {
+      enable = true;
+      settings = {
+        General.AddressRandomization = "network";
+        Settings.AutoConnect = true;
       };
     };
   };
