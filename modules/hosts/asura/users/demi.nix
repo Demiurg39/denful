@@ -5,15 +5,15 @@
 
       kitty
 
-      gamescope
-      gamemode
       steam
     ];
 
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
-      # ayugram
+      ayugram
       lutris
       spotify
+      zathura
+      qutebrowser
     ];
   };
 }
