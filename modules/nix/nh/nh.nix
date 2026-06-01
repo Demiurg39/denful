@@ -1,4 +1,4 @@
-{
+{lib, ...}: {
   flake.modules.nixos.nh = {
     programs.nh = {
       enable = true;
@@ -9,5 +9,6 @@
         extraArgs = "--keep 3";
       };
     };
+    nix.gc.automatic = lib.mkForce false;
   };
 }
