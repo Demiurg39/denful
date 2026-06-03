@@ -9,6 +9,8 @@
     ];
 
     home-manager.sharedModules = with inputs.self.modules.homeManager; [
+      cliphist
+
       ayugram
       lutris
       spotify
