@@ -2,7 +2,7 @@
   flake.modules.nixos.asura = {modulesPath, ...}: {
     imports = with inputs.self.modules.nixos; [
       (modulesPath + "/installer/scan/not-detected.nix")
-      (inputs.self.factory.zram {})
+      (inputs.self.factory.zram {memPercent = 150;})
       cpu-amd
       gpu-amd
       gpu-nvidia-laptop
