@@ -19,7 +19,7 @@
           shell = pkgs.nushell;
         };
 
-        age.secrets.demiHashedPassword.rekeyFile = "${self.inputs.secrets}/demi-hashed-password.age";
+        age.secrets.demiHashedPassword.rekeyFile = "${self.inputs.secrets}/users/demi/hashed-password.age";
 
         i18n = {
           defaultLocale = lib.mkDefault "en_US.UTF-8";
