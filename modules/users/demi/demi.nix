@@ -38,6 +38,7 @@
           nushell
           atuin
           direnv
+          devenv
           zoxide
         ];
         home.stateVersion = "24.11";
