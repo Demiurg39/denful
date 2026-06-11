@@ -6,21 +6,6 @@
   inherit (inputs.self.lib) assoc;
   def_url = "https://4get.ca";
   start_page = def_url;
-  #   # NOTE: in case of adding new dict, you must yourself browse the url
-  #   # and fill the hash and version per lang, per update sure do
-  #   # the same thing
-  #   languages = config.home.programs.qutebrowser.settings.spellcheck.languages;
-  #   dictsURL = "https://chromium.googlesource.com/chromium/deps/hunspell_dictionaries.git/+/refs/heads/main";
-  #   dictVersions = {
-  #     "en-US" = {
-  #       v = "10-1";
-  #       hash = "1bxn778sqd6q144hr4d6l18s34n1mjc6bp6dsjlp2sbhw4kh38h1";
-  #     };
-  #     "ru-RU" = {
-  #       v = "3-0";
-  #       hash = "1qv04065g6mxshz6s42y6b69cwscvdmbi2ji5mqc9s79pwi9xy4c";
-  #     };
-  #   };
 in {
   flake.modules.homeManager.qutebrowser = {pkgs, ...}: {
     programs.qutebrowser = {
@@ -112,28 +97,5 @@ in {
     };
 
     home.sessionVariables.BROWSER = lib.getExe pkgs.qutebrowser;
-
-    #     # Installing spellcheck dicts
-    #     home.file = listToAttrs (map (
-    #         lang: let
-    #           dict = dictVersions.${lang};
-    #           fn = "${lang}-${dict.v}.bdic";
-    #           base64File = pkgs.fetchurl {
-    #             url = "${dictsURL}/${fn}?format=TEXT";
-    #             sha256 = dict.hash;
-    #           };
-    #           dictFile =
-    #             pkgs.runCommand fn {
-    #               nativeBuildInputs = [pkgs.coreutils];
-    #             } ''
-    #               base64 -d < ${base64File} > $out
-    #             '';
-    #         in {
-    #           name = ".local/share/qutebrowser/qtwebengine_dictionaries/${fn}";
-    #           value.source = dictFile;
-    #         }
-    #       )
-    #       languages);
-    #   };
   };
 }
