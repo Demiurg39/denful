@@ -8,7 +8,7 @@
     ];
   };
 
-  flake.modules.homeManager.nushell = {
+  flake.modules.homeManager.nushell = {config, ...}: {
     imports = with inputs.self.modules.homeManager; [
       carapace
     ];
@@ -25,20 +25,15 @@
       shellAliases = {
         cl = "clear";
         grep = "grep --color=auto";
-        lgit = "lazygit";
         mv = "mv -v";
         rm = "rm -v";
         diff = "diff --color";
-        stl = "steamtinkerlaunch";
         ll = "ls -l";
-        # TODO: move to nvim module
-        # v = "nvim";
-        # vi = "nvim";
-        # vim = "nvim";
       };
       environmentVariables = {
-        SUDO_PROMPT = ''$"(ansi blue)%u(ansi reset) password -> "'';
-        XDG_CACHE_HOME = ''$nu.cache-dir | path dirname'';
+        SUDO_PROMPT = ''%u password ->'';
+        # SUDO_PROMPT = ''$"(ansi blue)%u$(ansi reset) password ->"'';
+        XDG_CACHE_HOME = config.xdg.cacheHome;
       };
     };
   };
