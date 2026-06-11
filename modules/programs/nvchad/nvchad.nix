@@ -5,20 +5,23 @@
     programs.nvchad = {
       enable = true;
       extraPackages = with pkgs; [
-        gdb
-        mermaid-cli
         alejandra
         asm-lsp
         asmfmt
-        nixd
-        nodejs
+        cargo
         clang-tools
+        gdb
         ghostscript
         fd
         lazygit
+        mermaid-cli
+        nixd
+        nodejs
         ripgrep
         rustc
         tectonic
+        unrar
+        unzip
       ];
       hm-activation = false;
       backup = false;
