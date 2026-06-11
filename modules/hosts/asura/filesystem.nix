@@ -1,9 +1,4 @@
-# TODO: move to disko config
 {
-  config,
-  self,
-  ...
-}: {
   flake.modules.nixos.asura = {
     disko.devices.disk.main = {
       type = "disk";
