@@ -1,6 +1,14 @@
 {inputs, ...}: {
   flake.modules.nixos.asura = {
-    imports = [inputs.self.modules.nixos.niri];
+    imports = with inputs.self.modules.nixos; [
+      niri
+      dms
+    ];
+
+    services.displayManager.dms-greeter = {
+      enable = true;
+      compositor.name = "niri";
+    };
 
     home-manager.sharedModules = [
       {
