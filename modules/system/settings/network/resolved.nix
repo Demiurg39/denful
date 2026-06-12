@@ -7,7 +7,7 @@
       settings.Resolve = {
         DNSOverTLS = true;
         DNSSEC = false;
-        fallbackDns = [
+        DNS = [
           "${inputs.self.const.network.dns.cloudflare.v4}#${inputs.self.const.network.dns.cloudflare.hostname}"
         ];
       };
