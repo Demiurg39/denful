@@ -8,7 +8,9 @@
     ];
   };
 
-  flake.modules.homeManager.nushell = {config, ...}: {
+  flake.modules.homeManager.nushell = {config, lib, ...}: let
+    inline = lib.hm.nushell.mkNushellInline;
+  in {
     imports = with inputs.self.modules.homeManager; [
       carapace
     ];
@@ -31,8 +33,7 @@
         ll = "ls -l";
       };
       environmentVariables = {
-        SUDO_PROMPT = ''%u password ->'';
-        # SUDO_PROMPT = ''$"(ansi blue)%u$(ansi reset) password ->"'';
+        SUDO_PROMPT = inline ''$"(ansi blue)%u(ansi reset) password ->"'';
         XDG_CACHE_HOME = config.xdg.cacheHome;
       };
     };
