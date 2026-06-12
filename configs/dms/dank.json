@@ -9,7 +9,7 @@
   "popupTransparency": 1,
   "dockTransparency": 1,
   "widgetBackgroundColor": "sch",
-  "widgetColorMode": "default",
+  "widgetColorMode": "colorful",
   "controlCenterTileColorMode": "primary",
   "buttonColorMode": "primary",
   "cornerRadius": 12,
@@ -36,8 +36,14 @@
   "modalAnimationSpeed": 1,
   "modalCustomAnimationDuration": 150,
   "enableRippleEffects": true,
+  "blurEnabled": true,
+  "blurForegroundLayers": true,
+  "blurLayerOutlineOpacity": 0.12,
+  "blurBorderColor": "outline",
+  "blurBorderCustomColor": "#ffffff",
+  "blurBorderOpacity": 0.35,
   "wallpaperFillMode": "Fill",
-  "blurredWallpaperLayer": false,
+  "blurredWallpaperLayer": true,
   "blurWallpaperOnOverview": false,
   "showLauncherButton": true,
   "showWorkspaceSwitcher": true,
@@ -52,6 +58,9 @@
   "selectedGpuIndex": 0,
   "enabledGpuPciIds": [],
   "showSystemTray": true,
+  "systemTrayIconTintMode": "none",
+  "systemTrayIconTintSaturation": 50,
+  "systemTrayIconTintStrength": 135,
   "showClock": true,
   "showNotificationButton": true,
   "showBattery": true,
@@ -139,7 +148,7 @@
   "reverseScrolling": false,
   "dwlShowAllTags": false,
   "workspaceColorMode": "default",
-  "workspaceOccupiedColorMode": "none",
+  "workspaceOccupiedColorMode": "sec",
   "workspaceUnfocusedColorMode": "default",
   "workspaceUrgentColorMode": "default",
   "workspaceFocusedBorderEnabled": false,
@@ -150,7 +159,7 @@
   "scrollTitleEnabled": true,
   "audioVisualizerEnabled": true,
   "audioScrollMode": "volume",
-  "audioWheelScrollAmount": 5,
+  "audioWheelScrollAmount": 1,
   "clockCompactMode": false,
   "focusedWindowCompactMode": false,
   "runningAppsCompactMode": true,
@@ -197,6 +206,11 @@
   "centeringMode": "index",
   "clockDateFormat": "",
   "lockDateFormat": "",
+  "greeterRememberLastSession": true,
+  "greeterRememberLastUser": true,
+  "greeterEnableFprint": false,
+  "greeterEnableU2f": false,
+  "greeterWallpaperPath": "",
   "mediaSize": 1,
   "appLauncherViewMode": "list",
   "spotlightModalViewMode": "list",
@@ -232,7 +246,7 @@
       "inactiveTimeout": 0
     },
     "niri": {
-      "hideAfterInactiveMs": 0,
+      "hideAfterInactiveMs": 320,
       "hideWhenTyping": false
     },
     "size": 24,
@@ -240,7 +254,7 @@
   },
   "launcherLogoMode": "os",
   "launcherLogoCustomPath": "",
-  "launcherLogoColorOverride": "surface",
+  "launcherLogoColorOverride": "primary",
   "launcherLogoColorInvertOnMode": false,
   "launcherLogoBrightness": 0.5,
   "launcherLogoContrast": 1,
@@ -287,6 +301,10 @@
   "qtThemingEnabled": false,
   "syncModeWithPortal": true,
   "terminalsAlwaysDark": false,
+  "muxType": "tmux",
+  "muxUseCustomCommand": false,
+  "muxCustomCommand": "",
+  "muxSessionFilter": "",
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
   "matugenTemplateNiri": true,
@@ -309,6 +327,7 @@
   "matugenTemplateKcolorscheme": true,
   "matugenTemplateVscode": true,
   "matugenTemplateEmacs": true,
+  "matugenTemplateZed": true,
   "showDock": false,
   "dockAutoHide": false,
   "dockSmartAutoHide": false,
@@ -350,6 +369,8 @@
   "lockAtStartup": false,
   "enableFprint": false,
   "maxFprintTries": 15,
+  "enableU2f": false,
+  "u2fMode": "or",
   "lockScreenActiveMonitor": "all",
   "lockScreenInactiveColor": "#000000",
   "lockScreenNotificationMode": 2,
@@ -401,7 +422,11 @@
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
   "displayNameMode": "system",
-  "screenPreferences": {},
+  "screenPreferences": {
+    "wallpaper": [
+      "all"
+    ]
+  },
   "showOnLastDisplay": {},
   "niriOutputSettings": {},
   "hyprlandOutputSettings": {},
@@ -445,8 +470,14 @@
       "id": "default",
       "innerPadding": 4,
       "leftWidgets": [
-        "launcherButton",
-        "workspaceSwitcher"
+        {
+          "enabled": true,
+          "id": "launcherButton"
+        },
+        {
+          "enabled": true,
+          "id": "workspaceSwitcher"
+        }
       ],
       "maximizeDetection": true,
       "maximizeWidgetIcons": false,
@@ -460,50 +491,51 @@
       "removeWidgetPadding": false,
       "rightWidgets": [
         {
-          "id": "systemTray",
-          "enabled": true
+          "enabled": true,
+          "id": "systemTray"
         },
         {
-          "id": "keyboard_layout_name",
           "enabled": true,
+          "id": "keyboard_layout_name",
           "keyboardLayoutNameCompactMode": false
         },
         {
-          "id": "cpuUsage",
           "enabled": true,
+          "id": "cpuUsage",
           "minimumWidth": true
         },
         {
-          "id": "memUsage",
           "enabled": true,
+          "id": "memUsage",
           "minimumWidth": true,
           "showSwap": false
         },
         {
-          "id": "weather",
-          "enabled": true
+          "enabled": true,
+          "id": "weather"
         },
         {
-          "id": "controlCenterButton",
           "enabled": true,
+          "id": "controlCenterButton",
           "showBatteryIcon": false
         }
       ],
       "screenPreferences": [
         "all"
       ],
+      "scrollEnabled": false,
       "shadowIntensity": 0,
       "showOnLastDisplay": true,
       "showOnWindowsOpen": false,
       "spacing": 4,
       "squareCorners": false,
-      "transparency": 1,
+      "transparency": 0,
       "visible": true,
       "widgetOutlineColor": "primary",
       "widgetOutlineEnabled": true,
       "widgetOutlineOpacity": 0.29,
       "widgetOutlineThickness": 1,
-      "widgetTransparency": 1
+      "widgetTransparency": 0.65
     }
   ],
   "desktopClockEnabled": false,
@@ -583,7 +615,7 @@
       "trigger": "?"
     }
   },
-  "clipboardEnterToPaste": false,
+  "clipboardEnterToPaste": true,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
   "configVersion": 5

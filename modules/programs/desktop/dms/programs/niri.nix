@@ -25,8 +25,8 @@ in {
         "Alt+Shift+L".action.spawn = dms_bind "mpris next";
         "Alt+Shift+Backspace".action.spawn = dms_bind "mpris stop";
 
-        "Mod+Tab".action.spawn = dms_bind "spotlight toggle";
-        "Mod+Tab".hotkey-overlay.title = "Open spotlight search";
+        "Mod+Tab".action.spawn = dms_bind "launcher toggle";
+        "Mod+Tab".hotkey-overlay.title = "Open laucher search";
 
         "Mod+D".action.spawn = dms_bind "clipboard toggle";
         "Mod+D".hotkey-overlay.title = "Open clipboard manager";
