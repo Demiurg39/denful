@@ -2,6 +2,7 @@
   flake.modules.homeManager.nvchad = {pkgs, ...}: {
     imports = [inputs.nix4nvchad.homeManagerModule];
 
+    home.sessionVariables.EDITOR = "nvim";
     programs.nvchad = {
       enable = true;
       extraPackages = with pkgs; [
