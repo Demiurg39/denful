@@ -1,19 +1,17 @@
 {inputs, ...}: {
   flake.modules.nixos.nushell = {pkgs, ...}: {
     home-manager.sharedModules = [inputs.self.modules.homeManager.nushell];
-
     environment.shells = [pkgs.nushell];
-    environment.systemPackages = with pkgs; [
-      bash
-    ];
   };
 
-  flake.modules.homeManager.nushell = {config, lib, ...}: let
+  flake.modules.homeManager.nushell = {
+    config,
+    lib,
+    ...
+  }: let
     inline = lib.hm.nushell.mkNushellInline;
   in {
-    imports = with inputs.self.modules.homeManager; [
-      carapace
-    ];
+    imports = [inputs.self.modules.homeManager.carapace];
 
     programs.nushell = {
       enable = true;
@@ -25,12 +23,14 @@
         };
       };
       shellAliases = {
-        cl = "clear";
         grep = "grep --color=auto";
+        diff = "diff --color";
+        lla = "ls -la";
+        ll = "ls -l";
+        cl = "clear";
+        cp = "cp -v";
         mv = "mv -v";
         rm = "rm -v";
-        diff = "diff --color";
-        ll = "ls -l";
       };
       environmentVariables = {
         SUDO_PROMPT = inline ''$"(ansi blue)%u(ansi reset) password ->"'';
