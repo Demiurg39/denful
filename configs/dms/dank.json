@@ -234,7 +234,7 @@
   "dankLauncherV2UnloadOnClose": false,
   "useAutoLocation": true,
   "weatherEnabled": true,
-  "networkPreference": "wifi",
+  "networkPreference": "ethernet",
   "iconTheme": "Papirus-Dark",
   "cursorSettings": {
     "dwl": {
@@ -615,7 +615,7 @@
       "trigger": "?"
     }
   },
-  "clipboardEnterToPaste": true,
+  "clipboardEnterToPaste": false,
   "launcherPluginVisibility": {},
   "launcherPluginOrder": [],
   "configVersion": 5
