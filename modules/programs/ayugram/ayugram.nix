@@ -8,7 +8,7 @@
     ];
 
     xdg.mimeApps.defaultApplications = assoc ayugram {
-      "x-scheme-handler/tg" = ["org.telegram.desktop"];
+      "x-scheme-handler/tg" = ["org.ayugram.desktop"];
     };
   };
 }
