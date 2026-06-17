@@ -13,7 +13,7 @@
       "usbhid"
     ];
 
-    boot.kernelModules = [ "virtio_net" ];
+    boot.kernelModules = ["virtio_net"];
     boot.kernelParams = ["console=tty1" "console=ttyS0"];
   };
 }
