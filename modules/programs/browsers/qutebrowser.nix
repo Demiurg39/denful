@@ -96,6 +96,6 @@ in {
       ];
     };
 
-    home.sessionVariables.BROWSER = lib.getExe pkgs.qutebrowser;
+    # home.sessionVariables.BROWSER = lib.getExe pkgs.qutebrowser;
   };
 }
