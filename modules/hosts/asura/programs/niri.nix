@@ -8,6 +8,10 @@
     services.displayManager.dms-greeter = {
       enable = true;
       compositor.name = "niri";
+      logs = {
+        save = true;
+        path = "/tmp/dms-greeter.log";
+      };
     };
 
     home-manager.sharedModules = [

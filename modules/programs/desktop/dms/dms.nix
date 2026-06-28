@@ -5,12 +5,7 @@
 }: {
   flake.modules.nixos.dms = {
     home-manager.sharedModules = [inputs.self.modules.homeManager.dms];
-
-    programs.dms-shell = {
-      enable = true;
-      systemd.enable = true;
-      systemd.restartIfChanged = true;
-    };
+    programs.dms-shell.enable = true;
   };
 
   flake.modules.homeManager.dms = {

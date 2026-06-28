@@ -16,6 +16,7 @@
 in {
   flake.modules.homeManager.dms = {
     imports = [inputs.dms.homeModules.niri];
+    programs.dank-material-shell.niri.enableSpawn = true;
 
     programs.niri.settings = {
       binds = {
