@@ -99,11 +99,17 @@
               "Mod+Shift+C".repeat = false;
               "Ctrl+Alt+Backspace".action.quit = {};
               "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = {};
-              "Mod+Shift+F".action.fullscreen-window = {};
 
+              "Mod+C".action.center-column = {};
+              "Mod+Ctrl+C".action.center-visible-columns = {};
               "Mod+Alt+Comma".action.maximize-window-to-edges = {};
               "Mod+Alt+Period".action.maximize-column = {};
               "Mod+Alt+R".action.switch-preset-column-width = {};
+              "Mod+Shift+R".action.switch-preset-window-height = {};
+              "Mod+Ctrl+R".action.reset-window-height = {};
+              "Mod+Alt+F".action.fullscreen-window = {};
+              "Mod+Ctrl+F".action.expand-column-to-available-width = {};
+              "Mod+Shift+F".action.toggle-window-floating = {};
 
               "Mod+O".action.toggle-overview = {};
               "Mod+O".repeat = false;
@@ -119,13 +125,18 @@
               "Mod+Shift+K".action.move-column-to-workspace-up = {};
               "Mod+Shift+Bracketright".action.move-column-right = {};
 
+              "Mod+Ctrl+Bracketleft".action.consume-or-expel-window-left = {};
+              "Mod+Ctrl+Bracketright".action.consume-or-expel-window-right = {};
+
+              "Mod+Ctrl+Shift+Bracketright".action.focus-monitor-next = {};
+              "Mod+Ctrl+Shift+Bracketleft".action.focus-monitor-previous = {};
+
               "Print".action.screenshot = {};
               "Print".hotkey-overlay.title = "Open interactive screenshot tool";
               "Mod+Alt+P".action.screenshot-screen = {};
               "Mod+Alt+P".hotkey-overlay.title = "Screenshot screen";
               "Alt+Print".action.screenshot-screen = {show-pointer = false;};
               "Alt+Print".hotkey-overlay.title = "Screenshot screen without pointer";
-              "Mod+Alt+P".action.screenshot-screen = {};
               "Mod+Ctrl+P".action.screenshot-window = {};
               "Mod+Ctrl+P".hotkey-overlay.title = "Screenshot window";
 
@@ -146,7 +157,6 @@
               # Mod+Shift+R { switch-preset-window-height; }
               # Mod+Ctrl+R { reset-window-height; }
               # Mod+F { maximize-column; }
-              # Mod+Shift+F { fullscreen-window; }
               # Mod+M { maximize-window-to-edges; }
               #
               # # Expand the focused column to space not taken up by other fully visible columns.
