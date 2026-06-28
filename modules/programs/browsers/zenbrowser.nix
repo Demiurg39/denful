@@ -12,7 +12,7 @@ in {
       zen
     ];
 
-    home.sessionVariables.BROWSER = lib.getExe zen;
+    # home.sessionVariables.BROWSER = lib.getExe zen;
     xdg.mimeApps.defaultApplications = assoc zen {
       "application" = [
         "json"
