@@ -5,6 +5,7 @@
       systemd-boot
 
       resolved
+      libvirtd
     ];
 
     system.stateVersion = "24.11";
