@@ -6,6 +6,7 @@
 
       resolved
       libvirtd
+      winboat
     ];
 
     system.stateVersion = "24.11";
