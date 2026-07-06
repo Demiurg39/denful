@@ -7,6 +7,7 @@
       resolved
       libvirtd
       winboat
+      waydroid
     ];
 
     system.stateVersion = "24.11";
