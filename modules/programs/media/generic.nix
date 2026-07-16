@@ -23,6 +23,27 @@ in {
           (assoc pkgs.amberol {
             audio = ["mp3" "flac" "wav" "aac"];
           })
+          (assoc pkgs.nautilus {
+            inode = ["directory"];
+          })
+          (assoc pkgs.file-roller {
+            application = [
+              "zip"
+              "x-tar"
+              "x-gzip"
+              "x-compressed-tar"
+              "x-bzip2"
+              "x-bzip2-compressed-tar"
+              "x-bzip"
+              "x-bzip-compressed-tar"
+              "x-7z-compressed"
+              "x-rar"
+              "vnd.rar"
+              "x-xz"
+              "x-xz-compressed-tar"
+              "x-zstd"
+            ];
+          })
         ];
       };
     };
