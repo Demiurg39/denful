@@ -1,5 +1,7 @@
-{inputs, ...}: let
-  home-manager-config = {
+{inputs, ...}: {
+  flake.modules.nixos.home-manager = {
+    imports = [inputs.home-manager.nixosModules.home-manager];
+
     home-manager = {
       verbose = true;
       useUserPackages = true;
@@ -8,12 +10,5 @@
       backupCommand = "rm";
       overwriteBackup = true;
     };
-  };
-in {
-  flake.modules.nixos.home-manager = {
-    imports = [
-      inputs.home-manager.nixosModules.home-manager
-      home-manager-config
-    ];
   };
 }
