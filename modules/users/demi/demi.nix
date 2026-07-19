@@ -40,6 +40,7 @@
           direnv
           devenv
           zoxide
+          helix
         ];
         home.stateVersion = "24.11";
         home.preferXdgDirectories = true;
