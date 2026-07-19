@@ -1,10 +1,8 @@
 {inputs, ...}: {
   flake.modules.nixos.asura = {
     imports = with inputs.self.modules.nixos; [
-      demi
-
+      demi-desktop
       kitty
-
       steam
     ];
 

@@ -1,7 +1,0 @@
-{
-  flake.modules.homeManager.demi = {
-    age.rekey = {
-      hostPubkey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPHs7JuXYLla/8vwen9DHAbP1X90J7wJrw2+Cfyf2kbW";
-    };
-  };
-}

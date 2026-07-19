@@ -1,5 +1,6 @@
-{
-  flake.modules.homeManager.demi = {
+{self, ...}: {
+  flake.modules.homeManager.demi-cli = {
+    imports = [self.modules.homeManager.nushell];
     programs.nushell = {
       enable = true;
       settings = {
