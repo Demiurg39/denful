@@ -6,5 +6,6 @@
 
   config.flake.const = {
     timezone = "Asia/Bishkek";
+    domain = "diewunderwelt.dpdns.org";
   };
 }
