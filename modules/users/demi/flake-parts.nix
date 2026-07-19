@@ -1,5 +1,15 @@
 {inputs, ...}: {
-  # FIX: home-manager standalone cause stateVersion error
-  # flake.homeConfigurations = inputs.self.lib.mkHome "x86_64-linux" "demi";
-  # flake.homeConfigurations = inputs.self.lib.mkHome "aarch64-linux" "demi";
+  flake.homeConfigurations =
+    (inputs.self.lib.mkHome {
+      username = "demi";
+      profile = "default";
+    })
+    // (inputs.self.lib.mkHome {
+      username = "demi";
+      profile = "cli";
+    })
+    // (inputs.self.lib.mkHome {
+      username = "demi";
+      profile = "desktop";
+    });
 }

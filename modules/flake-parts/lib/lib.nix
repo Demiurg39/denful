@@ -1,5 +1,6 @@
 # lib: config auxiliary functions
 {
+  config,
   inputs,
   lib,
   ...
@@ -21,16 +22,23 @@
         ];
       };
     };
+    mkHome = {
+      username,
+      profile ? "default",
+      systems ? config.systems,
+    }:
+      builtins.listToAttrs (map (system: {
+          name = "${username}-${profile}-${system}";
 
-    mkHome = system: name: {
-      ${name} = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = inputs.nixpkgs.legacyPackages.${system};
-        modules = [
-          inputs.self.modules.homeManager.${name}
-          # TODO: add unfree predicate, and allow unfree only needed options
-          {nixpkgs.config.allowUnfree = true;}
-        ];
-      };
-    };
+          value = inputs.home-manager.lib.homeManagerConfiguration {
+            pkgs = inputs.nixpkgs.legacyPackages.${system};
+            modules = [
+              inputs.self.modules.homeManager."${username}-${profile}-standalone"
+              # TODO: substitute with unfree predicate and allow only needed pkgs
+              {nixpkgs.config.allowUnfree = true;}
+            ];
+          };
+        })
+        systems);
   };
 }

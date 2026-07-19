@@ -121,7 +121,7 @@
     };
     homeManager."${username}-cli-standalone" = {
       imports = [
-        self.modules.homeManager."${username}-default"
+        self.modules.homeManager."${username}-default-standalone"
         self.modules.homeManager."${username}-cli"
       ];
     };
@@ -142,7 +142,7 @@
     };
     homeManager."${username}-desktop-standalone" = {
       imports = [
-        self.modules.homeManager."${username}-cli"
+        self.modules.homeManager."${username}-cli-standalone"
         self.modules.homeManager."${username}-desktop"
       ];
     };
