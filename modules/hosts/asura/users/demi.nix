@@ -15,7 +15,8 @@
       lutris
       spotify
       zathura
-      qutebrowser
+      # qutebrowser
+      zen-browser
     ];
   };
 }
