@@ -19,6 +19,10 @@
         console.keyMap = "mod-dh-ansi-us";
       };
 
+      nixos.demi-cli = {
+        imports = [self.modules.nixos.tailscale];
+      };
+
       homeManager.demi-cli = {
         imports = with self.modules.homeManager; [
           atuin
